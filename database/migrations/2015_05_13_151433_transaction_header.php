@@ -19,8 +19,7 @@ class TransactionHeader extends Migration {
                         ->references('id')
                         ->on('transaction_type');
                 $table->date('document_date');//date in preprinted in document
-                $table->string('doc_number');//number in preprinted document
-                $table->string('doc_series');//series in preprinted document
+                $table->string('document_number');//number in preprinted document
                 $table->text('note'); //any note the use would like to take down
             });
             }

@@ -19,11 +19,12 @@ class TransactionType extends Migration {
         //for a better organization of the transactions
         Schema::create('transaction_type', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('description');
-            $table->char('i_o',1); //character "i" means input, "o" output
+            $table->string('short_description'); //example FCRE, PROF, FCON
+            $table->string('description'); //Long description when possible
+            $table->integer('effect_inv',1); //+1, -1, 0
             //a transaction might require value, quantity, either or none
-            $table->bool('uses_quantity')->default(true);
-            $table->bool('uses_value')->default(true);
+            $table->bool('req_qty')->default(true); //requires quantity
+            $table->bool('req_val')->default(true); //requires value
             
         });
     }
